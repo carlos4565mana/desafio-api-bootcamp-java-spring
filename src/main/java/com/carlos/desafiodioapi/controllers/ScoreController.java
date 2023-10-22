@@ -10,7 +10,6 @@ import com.carlos.desafiodioapi.dtos.MovieDTO;
 import com.carlos.desafiodioapi.dtos.ScoreDTO;
 import com.carlos.desafiodioapi.services.ScoreService;
 
-import jakarta.validation.Valid;
 
 
 
@@ -22,7 +21,7 @@ public class ScoreController {
 	private ScoreService service;
 	
 	@PutMapping
-	public MovieDTO saveScore(@Valid @RequestBody ScoreDTO dto) {
+	public MovieDTO saveScore( @RequestBody ScoreDTO dto) {
 		MovieDTO movieDTO = service.saveScore(dto);
 		return movieDTO;
 	}
