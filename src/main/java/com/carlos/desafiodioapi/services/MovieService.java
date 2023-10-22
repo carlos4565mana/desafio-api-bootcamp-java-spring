@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.carlos.desafiodioapi.dtos.MovieDTO;
 import com.carlos.desafiodioapi.entities.Movie;
 import com.carlos.desafiodioapi.repositories.MovieRepository;
+import com.carlos.desafiodioapi.services.exceptions.ResourceNotFoundException;
+
 
 @Service
 public class MovieService {
@@ -23,6 +25,11 @@ public class MovieService {
 		Page<MovieDTO> page = result.map(x -> new MovieDTO(x));
 		return page;
 		
+	}
+	
+	public MovieDTO findById(Long id) {
+		Movie result = movieRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Recurso não encontrado"));
+		return new MovieDTO();
 	}
 
 }
