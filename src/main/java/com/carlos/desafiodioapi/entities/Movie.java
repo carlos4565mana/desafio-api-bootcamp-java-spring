@@ -101,7 +101,9 @@ public class Movie {
 		this.image = image;
 	}
 	
-	
+	public Set<Score> getScores() {
+		return scores;
+	}
 	
 	
 }
