@@ -2,6 +2,7 @@ package com.carlos.desafiodioapi.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.carlos.desafiodioapi.dtos.MovieDTO;
 import com.carlos.desafiodioapi.dtos.ScoreDTO;
@@ -24,6 +25,7 @@ public class ScoreService {
 	@Autowired
 	private ScoreRepository scoreRepository;
 	
+	@Transactional
 	public MovieDTO saveScore(ScoreDTO dto) {
 		User user = userRepository.findByEmail(dto.getEmail());
 		if(user == null) {

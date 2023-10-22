@@ -27,6 +27,7 @@ public class MovieService {
 		
 	}
 	
+	@Transactional(readOnly = true)
 	public MovieDTO findById(Long id) {
 		Movie result = movieRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Recurso não encontrado"));
 		return new MovieDTO(result);
